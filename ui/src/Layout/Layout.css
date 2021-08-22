@@ -1,0 +1,46 @@
+#root {
+	--main-bg-color:White;
+	--main-fg-color: White;
+	--main-text-color: black;
+	--main-border-color: black;
+	background: var(--main-bg-color);
+}
+
+.app-wrapper{
+	/* min-height: 950px; */
+	max-height: 1050px;
+	text-align: center;
+	border-radius: 10px;
+	border: 2px solid var(--main-border-color);
+}
+
+.nav-bar {
+	margin-top: 5px;
+	min-height: 75px;
+	border: 2px solid var(--main-border-color);
+	border-radius: 10px;
+}
+
+.cards-container {
+	text-align: center;
+	border: 2px solid var(--main-border-color);
+	background: var(--main-bg-color);
+	border-radius: 10px;
+	min-height: 850px;
+}
+
+.submission-container{
+	text-align: center;
+	border-radius: 10px;
+	border: 2px solid var(--main-border-color);
+}
+
+.footer {
+	max-height: 50px;
+	border: 2px solid var(--main-border-color);
+	border-radius: 10px;
+}
+
+.card-container {
+	margin-top: 5px;
+}
