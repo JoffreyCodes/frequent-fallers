@@ -8,7 +8,7 @@ const StuffyType = new GraphQLObjectType({
     id: { type: GraphQLID },
     stuffyName: { type: GraphQLString },
     primaryColor: { type: GraphQLString },
-    secondayColor: { type: GraphQLString },
+    secondaryColor: { type: GraphQLString },
   })
 });
 
