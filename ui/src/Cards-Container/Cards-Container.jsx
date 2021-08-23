@@ -1,10 +1,10 @@
 import React from 'react'
-import { StuffyCard } from './StuffyCard'
+import { StuffyGrid } from './StuffyGrid'
 
 export function CardsContainer(props){
   return(
     <>
-    <StuffyCard stuffyList={props.stuffyList}/>
+      <StuffyGrid stuffyList={props.stuffyList}/>
     </>
   )
 }
