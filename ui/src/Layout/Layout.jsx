@@ -3,7 +3,8 @@ import { Container, Row, Col } from 'react-bootstrap';
 import { useQuery, gql } from "@apollo/client";
 
 import './Layout.css';
-import CardsContainer from '../Cards-Container/Cards-Container';
+import CardsContainer from '../Cards-Panel/CardsContainer';
+import SubmissionContainer from '../Submission-Panel/SubmissionContainer';
 
 const STUFFY_LIST = gql `
 query{
@@ -45,20 +46,21 @@ export function Layout(){
             </Col>
             <Row>
               <Col 
-                className="cards-container"
+                className="cards-panel"
                 md={{span:9}}
               >
                 <CardsContainer 
                   stuffyList={stuffyList}
-                  setStuffyCheckedList={setStuffyCheckedList}
+                  setStuffyCheckedList={(val)=>setStuffyCheckedList([...val])}
                 />
               </Col>
               <Col 
-                className="submission-container"
+                className="submission-panel"
                 md={{span:3}}
               >
-                Cards Submission
-                {/* {stuffyCheckedList} */}
+                <SubmissionContainer
+                  stuffyCheckedList={stuffyCheckedList}
+                />
               </Col>
             </Row>
             <Col 

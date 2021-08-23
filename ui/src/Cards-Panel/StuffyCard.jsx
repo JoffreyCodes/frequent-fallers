@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import { Container, Form, Card } from 'react-bootstrap'
+import { Form, Card } from 'react-bootstrap'
 export function StuffyCard(props){
 
   function stuffyImage(stuffyName){
@@ -19,10 +19,6 @@ export function StuffyCard(props){
 
   return(
     <>
-      {/* <Container
-        className="card-container"
-        key={props.stuffyName}
-      > */}
         <Card
           border='info'
           bg='light' 
@@ -46,7 +42,6 @@ export function StuffyCard(props){
             />
           </Card.Footer>
         </Card>
-      {/* </Container> */}
     </>
   )
 }
