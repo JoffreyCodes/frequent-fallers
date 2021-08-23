@@ -1,8 +1,15 @@
 import React, {useState} from 'react'
 import { Container, Form, Card } from 'react-bootstrap'
-
 export function StuffyCard(props){
-  const stuffyImage = require(`../images/${props.stuffyName}.png`).default
+
+  function stuffyImage(stuffyName){
+    try {
+      return (require(`../images/${stuffyName}.png`).default)
+    } catch (err) {
+      return (require(`../images/Image_Not_Found.png`).default)
+    }
+  }
+
   const [isChecked, setIsChecked] = useState(false)
 
   function handleCardClick(event){
@@ -29,7 +36,7 @@ export function StuffyCard(props){
           <Card.Footer>
           <Card.Img 
               variant="top" 
-              src= {stuffyImage}
+              src={stuffyImage(props.stuffyName)}
             />
             <Form.Check
               type="checkbox"
