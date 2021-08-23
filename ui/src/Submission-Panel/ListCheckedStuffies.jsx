@@ -4,8 +4,11 @@ import { ListGroup } from 'react-bootstrap'
 function ListCheckedStuffies(props) {
 
   function ItemizedStuffies(){
+   const filteredTrue = props.stuffyCheckedList
+    .filter((stuffyData) => stuffyData.isChecked === true)
+
     return(
-      props.stuffyCheckedList.map((stuffyData, i)=>
+      filteredTrue.map((stuffyData, i)=>
         <ListGroup.Item 
           action 
           variant="info" 
