@@ -1,5 +1,6 @@
 import React, {useState} from 'react'
 import { StuffyCard } from './StuffyCard' 
+import { Row, Col } from 'react-bootstrap';
 
 export function StuffyGrid(props){
 
@@ -27,14 +28,19 @@ export function StuffyGrid(props){
 
   return(
     <>
-      {props.stuffyList.map((stuffy)=>
-        <StuffyCard 
-          stuffyName={stuffy.stuffyName}
-          isChecked={handleCheck}
-          key={stuffy.stuffyName}
-        />
-      )}
-    </>
+      <Row xs={1} sm={1} md={2} className="g-4">
+        {props.stuffyList.map((stuffy)=>
+          <Col key={stuffy.stuffyName}
+          >
+            <StuffyCard 
+              stuffyName={stuffy.stuffyName}
+              isChecked={handleCheck}
+              key={stuffy.stuffyName}
+            />
+          </Col>
+        )}
+      </Row>
+      </>
   )
 }
 
