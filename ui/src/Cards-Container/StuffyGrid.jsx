@@ -19,19 +19,18 @@ export function StuffyGrid(props){
   function handleCheck(event){
     let stuffyNameChecked = stuffyChecked
     stuffyNameChecked.forEach((stuffyCheck)=>{
-      if (stuffyCheck.stuffyName === event.target.name)
-        stuffyCheck.isChecked = event.target.checked
+      if (stuffyCheck.stuffyName === event[0])
+        stuffyCheck.isChecked = event[1]
     })
     setStuffyChecked(stuffyNameChecked)
-    console.log(stuffyChecked)  
+    console.log(stuffyChecked)
   }
 
   return(
     <>
       <Row xs={1} sm={1} md={2} className="g-4">
         {props.stuffyList.map((stuffy)=>
-          <Col key={stuffy.stuffyName}
-          >
+          <Col key={stuffy.stuffyName}>
             <StuffyCard 
               stuffyName={stuffy.stuffyName}
               isChecked={handleCheck}
