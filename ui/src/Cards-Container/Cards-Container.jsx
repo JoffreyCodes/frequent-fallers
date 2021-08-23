@@ -4,7 +4,10 @@ import { StuffyGrid } from './StuffyGrid'
 export function CardsContainer(props){
   return(
     <>
-      <StuffyGrid stuffyList={props.stuffyList}/>
+      <StuffyGrid 
+        stuffyList={props.stuffyList}
+        setStuffyCheckedList={props.setStuffyCheckedList}  
+      />
     </>
   )
 }

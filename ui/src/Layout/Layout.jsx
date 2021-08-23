@@ -14,6 +14,8 @@ query{
 
 export function Layout(){
   const [stuffyList, setStuffyList] = useState([])
+  const [stuffyCheckedList, setStuffyCheckedList] = useState([])
+
   const [onCompleted, setOnCompleted] = useState(false)
 
   const {data, error, loading} = useQuery(STUFFY_LIST, {
@@ -46,13 +48,17 @@ export function Layout(){
                 className="cards-container"
                 md={{span:9}}
               >
-                <CardsContainer stuffyList={stuffyList}/>
+                <CardsContainer 
+                  stuffyList={stuffyList}
+                  setStuffyCheckedList={setStuffyCheckedList}
+                />
               </Col>
               <Col 
                 className="submission-container"
                 md={{span:3}}
               >
-                Cards Container
+                Cards Submission
+                {/* {stuffyCheckedList} */}
               </Col>
             </Row>
             <Col 

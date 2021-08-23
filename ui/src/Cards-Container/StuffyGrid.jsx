@@ -6,29 +6,37 @@ export function StuffyGrid(props){
 
   const stuffyNames = props.stuffyList.map((stuffy)=>stuffy.stuffyName);
 
-  let stuffyCheckedList = [];
+  let initList = [];
   stuffyNames.forEach(stuffyName => [
-    stuffyCheckedList.push({
+    initList.push({
       stuffyName: stuffyName, 
       isChecked: false
     })  
   ])
 
-  const [stuffyChecked, setStuffyChecked] = useState(stuffyCheckedList)
+  const [stuffyCheckedList, setStuffyCheckedList] = useState(initList)
 
   function handleCheck(event){
-    let stuffyNameChecked = stuffyChecked
+    let stuffyNameChecked = stuffyCheckedList
     stuffyNameChecked.forEach((stuffyCheck)=>{
       if (stuffyCheck.stuffyName === event[0])
         stuffyCheck.isChecked = event[1]
     })
-    setStuffyChecked(stuffyNameChecked)
-    console.log(stuffyChecked)
+    setStuffyCheckedList(stuffyNameChecked)
+    props.setStuffyCheckedList(stuffyCheckedList)
   }
 
   return(
     <>
-      <Row xs={1} sm={1} md={2} className="g-4">
+      <Row 
+        xs={'auto'} 
+        sm={'auto'} 
+        md={'auto'} 
+        lg={'auto'}
+        xl={'auto'}
+        xxl={'auto'}
+        className="g-4"
+      >
         {props.stuffyList.map((stuffy)=>
           <Col key={stuffy.stuffyName}>
             <StuffyCard 
@@ -39,7 +47,7 @@ export function StuffyGrid(props){
           </Col>
         )}
       </Row>
-      </>
+    </>
   )
 }
 

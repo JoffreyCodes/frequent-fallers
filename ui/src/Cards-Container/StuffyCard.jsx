@@ -19,14 +19,14 @@ export function StuffyCard(props){
 
   return(
     <>
-      <Container
+      {/* <Container
         className="card-container"
         key={props.stuffyName}
-      >
+      > */}
         <Card
           border='info'
           bg='light' 
-          style={{ width: '18rem' }}
+          style={{ width: '16rem' }}
           key={props.stuffyName}
           onClick={handleCardClick}
         >
@@ -46,7 +46,7 @@ export function StuffyCard(props){
             />
           </Card.Footer>
         </Card>
-      </Container>
+      {/* </Container> */}
     </>
   )
 }
