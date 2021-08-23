@@ -22,9 +22,10 @@
 }
 
 .cards-panel {
-  /* display: flex; */
-  /* justify-content: center; */
+  display: flex;
+  justify-content: center;
 	margin: 0px;
+	padding-top: 10px;
 	border: 2px solid var(--main-border-color);
 	background: var(--main-bg-color);
 	border-radius: 10px;
@@ -33,6 +34,7 @@
 
 .submission-panel{
 	text-align: center;
+	padding-top: 10px;
 	border-radius: 10px;
 	border: 2px solid var(--main-border-color);
 }
@@ -45,4 +47,8 @@
 
 .card-container {
 	margin-top: 5px;
+}
+
+.react-date-picker{
+	margin-bottom: 5px;
 }
