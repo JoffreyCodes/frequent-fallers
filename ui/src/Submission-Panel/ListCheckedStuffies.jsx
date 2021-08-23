@@ -21,7 +21,7 @@ function ListCheckedStuffies(props) {
   }
 
   return (
-    <div>
+    <div class="CheckedStuffiesContainer">
       <ListGroup>
         <ItemizedStuffies />
       </ListGroup>

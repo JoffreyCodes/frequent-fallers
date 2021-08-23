@@ -52,3 +52,12 @@
 .react-date-picker{
 	margin-bottom: 5px;
 }
+
+.CheckedStuffiesContainer{
+	margin-top: 10px;
+	min-height: 500px;
+	background-color: lightblue;
+	border: 2px solid black;
+	border-radius: 5px;
+	padding: 1px;
+}
