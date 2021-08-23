@@ -2,7 +2,6 @@ import React, {useState} from 'react'
 import { Container, Row, Col } from 'react-bootstrap';
 import { useQuery, gql } from "@apollo/client";
 
-
 import './Layout.css';
 import CardsContainer from '../Cards-Container/Cards-Container';
 
@@ -15,49 +14,57 @@ query{
 
 export function Layout(){
   const [stuffyList, setStuffyList] = useState([])
+  const [onCompleted, setOnCompleted] = useState(false)
 
-  useQuery(STUFFY_LIST, {
-    onCompleted: (data) => setStuffyList(data.stuffies), 
-    fetchPolicy: 'no-cache',
-    notifyOnNetworkStatusChange: true
+  const {data, error, loading} = useQuery(STUFFY_LIST, {
+    fetchPolicy: 'network-only',
+    notifyOnNetworkStatusChange: true,
   })
+  if (loading) return "Loading..."
+  if (error) return `Error! ${error.message}`;
+  if(data && onCompleted === false){
+    setStuffyList(data.stuffies)
+    setOnCompleted(true)
+  }
 
   return (
-    <Container fluid className="app-container">
-      <Row>
-        <Col 
-          className="app-wrapper"
-          md={{offset:1, span:10}}
-        >
+    data ?
+      <Container fluid className="app-container">
+        <Row>
           <Col 
-            className="nav-bar"
-            md={{span:12}}
+            className="app-wrapper"
+            md={{offset:1, span:10}}
           >
-            Nav
-          </Col>
-          <Row>
             <Col 
-              className="cards-container"
-              md={{span:9}}
+              className="nav-bar"
+              md={{span:12}}
             >
-              <CardsContainer stuffyList={stuffyList}/>
+              Nav
             </Col>
+            <Row>
+              <Col 
+                className="cards-container"
+                md={{span:9}}
+              >
+                <CardsContainer stuffyList={stuffyList}/>
+              </Col>
+              <Col 
+                className="submission-container"
+                md={{span:3}}
+              >
+                Cards Container
+              </Col>
+            </Row>
             <Col 
-              className="submission-container"
-              md={{span:3}}
+              className="footer"
+              md={{span:12}}
             >
-              Cards Container
+              footer
             </Col>
-          </Row>
-          <Col 
-            className="footer"
-            md={{span:12}}
-          >
-            footer
           </Col>
-        </Col>
-      </Row>
-    </Container>
+        </Row>
+      </Container>
+    : null
   )
 }
 
