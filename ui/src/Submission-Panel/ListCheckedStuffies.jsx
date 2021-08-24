@@ -13,7 +13,7 @@ function ListCheckedStuffies(props) {
 
     return(
       filteredTrue.map((stuffyData, i)=>
-        <tr>
+        <tr key={i}>
           <td>
             {stuffyData.stuffyName}
           </td>
@@ -26,13 +26,13 @@ function ListCheckedStuffies(props) {
   }
 
   return (
-    <div class="CheckedStuffiesContainer">
+    <div className="CheckedStuffiesContainer">
       <Table 
         striped 
         bordered 
         hover 
         size="sm"
-        variant='info'      
+        variant='secondary'      
       >
         <thead>
           <tr>

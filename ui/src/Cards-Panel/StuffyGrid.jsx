@@ -5,7 +5,7 @@ import { Row, Col } from 'react-bootstrap';
 export function StuffyGrid(props){
 
   const stuffyNames = props.stuffyList.map((stuffy)=>stuffy.stuffyName);
-
+  
   let initList = [];
   stuffyNames.forEach(stuffyName => [
     initList.push({
@@ -29,16 +29,12 @@ export function StuffyGrid(props){
   return(
     <>
       <Row 
-        xs={'auto'} 
-        sm={'auto'} 
-        md={'auto'} 
-        lg={'auto'}
-        xl={'auto'}
-        xxl={'auto'}
-        className="g-4"
+        className="stuffy-grid"
       >
         {props.stuffyList.map((stuffy)=>
-          <Col key={stuffy.stuffyName}>
+          <Col 
+            className="card-col"
+            key={stuffy.stuffyName}>
             <StuffyCard 
               stuffyName={stuffy.stuffyName}
               isChecked={handleCheck}

@@ -33,10 +33,11 @@ export function Layout(){
   return (
     data ?
       <Container fluid className="app-container">
+
         <Row>
           <Col 
             className="app-wrapper"
-            md={{offset:1, span:10}}
+            md={{offset:0, span:12}}
           >
             <Col 
               className="nav-bar"

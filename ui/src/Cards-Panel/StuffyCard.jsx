@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import { Form, Card } from 'react-bootstrap'
+import { Form, Card, Image } from 'react-bootstrap'
 export function StuffyCard(props){
 
   function stuffyImage(stuffyName){
@@ -13,35 +13,41 @@ export function StuffyCard(props){
   const [isChecked, setIsChecked] = useState(false)
 
   function handleCardClick(event){
+    handleNameClick(event)
     setIsChecked(!isChecked)
     props.isChecked([props.stuffyName, !isChecked, event])
   }
 
+  function handleNameClick(event){
+    console.log(event)
+  }
+
   return(
     <>
-        <Card
-          border='info'
-          bg='light' 
-          style={{ width: '16rem' }}
-          key={props.stuffyName}
-          onClick={handleCardClick}
-        >
-          <Card.Header>
-            <h4>{props.stuffyName}</h4>
-          </Card.Header>
-          <Card.Footer>
-          <Card.Img 
-              variant="top" 
-              src={stuffyImage(props.stuffyName)}
-            />
-            <Form.Check
-              type="checkbox"
-              id={props.stuffyName}
-              checked={isChecked}
-              onChange={()=>null}
-            />
-          </Card.Footer>
-        </Card>
+      <Card
+        border='secondary'
+        bg='secondary' 
+        style={{ width: '10rem' }}
+        key={props.stuffyName}
+        onClick={handleCardClick}
+      >
+        <Card.Img
+          variant="top" 
+          src={stuffyImage(props.stuffyName)}
+        />
+        <Card.Footer>
+
+          <Form.Check
+            type="checkbox"
+            id={props.stuffyName}
+            checked={isChecked}
+            onChange={handleNameClick}
+            label={<h6>{props.stuffyName}</h6>}
+          />
+        </Card.Footer>
+      </Card>
     </>
   )
+
+
 }

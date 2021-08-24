@@ -4,19 +4,22 @@ import DatePicker from 'react-date-picker'
 function DateContainer(props) {
   const [date, setDate] = useState(new Date());
   const weekdays = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
-  const [weekday, setWeekday] = useState('')
 
   function InputDate(){
+    let message;
     try{
       const dateNum= date.getDay()
-      setWeekday(`${weekdays[dateNum]}`)
-      props.setWeekday(`${weekdays[dateNum]}`)
+      message=(`${weekdays[dateNum]}`)
     }catch (err){
-      setWeekday("Please pick a date: ")
-      props.setWeekday("Please pick a date: ")
+      message=("Please pick a date: ")
     }
-    return(weekday)
+    return message
   }
+
+  React.useEffect(()=>{
+    props.setWeekday(InputDate());
+  })
+
   return (
     <>
     <InputDate />
